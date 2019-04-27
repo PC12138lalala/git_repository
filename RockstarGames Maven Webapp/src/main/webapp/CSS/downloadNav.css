@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+*{
+	margin:0;
+	padding:0;
+}
+body
+{
+	text-align: center;
+}
+#nav
+{
+	width:100%;
+}
+#nav ul1
+{
+	height:25px;
+	width:100%;
+	overflow:scroll;
+}
+#nav ul1 li
+{
+	background-color: white;
+	border-top:2px solid gray;
+	height:21px;
+	padding:2px;
+	display:block;
+}
+#nav ul1 li a
+{
+	text-decoration:none;
+	font:bold 14pt Courier New;
+	color:black;
+}
+#nav ul1 li span:AFTER
+{
+	content: ">>";
+	opacity: 0;
+}
+#nav ul1 li:hover 
+{
+	background-color: black;
+	transition:0.5s;
+}
+#nav ul1 li:hover a
+{
+	color:white;
+	transition:0.5s;
+}
+#nav ul1 li a:hover span:AFTER
+{
+	opacity: 1;
+	transition:0.5s;
+}
