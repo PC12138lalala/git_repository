@@ -14,14 +14,14 @@ var SISinterval;	/*滚动计时器*/
 var SISintervalTime = 5000;	/*滚动计时器时间，不给定值则初始化为5000ms*/
 var imgRatio = 16 / 9;	/*分辨率,默认16:9*/
 var SISBoxWidth;	/*盒子宽度，默认为70%*/
-var SISType="z";	/*SIS滑动类型,默认为z*/
+var SISType = "z";	/*SIS滑动类型,默认为z*/
 
 
 /*
 * 页面加载完成后执行，用于初始化某些参数、动态添加选择条并开启计时器
 */
 
-$(function () {
+$(window).on("load", function () {
     SISType = document.getElementById("SISMainBox").getAttribute("data-type").toLowerCase();
     imgRatio = eval(document.getElementById("SISMainBox").getAttribute("data-ratio").replace(":", "/"));
     SISBoxWidth = document.getElementById("SISMainBox").getAttribute("data-box-width");
@@ -91,7 +91,7 @@ $(function () {
         }
 
 
-    }else if(SISType == "x-left" || SISType == "x-right"){
+    } else if (SISType == "x-left" || SISType == "x-right") {
         $("#SISMainBox").addClass("x-slide-img-show");
         /*组建向前翻页按钮*/
         var img = document.createElement("img");
