@@ -89,13 +89,8 @@ $(function () {
                 mimg.setAttribute("style", "opacity:0;");
             sISmainBox.appendChild(mimg);
         }
-        /*清除内容*/
 
-        /*删除废弃标签*/
-        for (i = 0; i < pnum; i++)
-            sISmainBox.removeChild(sISsource[0]);
-        /*开启轮播*/
-        changeDirect(1);	/*避免加载死条*/
+
     }else if(SISType == "x-left" || SISType == "x-right"){
         $("#SISMainBox").addClass("x-slide-img-show");
         /*组建向前翻页按钮*/
@@ -113,11 +108,44 @@ $(function () {
         var next_button = document.createElement("SISnext-button");
         next_button.appendChild(img);
         var sISmainBox = document.getElementById("SISMainBox");
+        /*组建底部*/
+        var sISbottom = document.createElement("SISbottom");
+        sISbottom.setAttribute("id", "SISbottom");
+        var sISbottomWidth = 1 / pnum * 100;
+        for (i = 0; i < pnum; i++) {
+            var child = document.createElement("lcolor");
+            child.setAttribute("id", "SISlc" + (i + 1));
+            child.setAttribute("name", "SISlcolor");
+            var newElt = document.createElement("c-line");
+            newElt.setAttribute("id", "SISb" + (i + 1));
+            newElt.setAttribute("onclick", "changeDirect(" + (i + 1) + ")");
+            newElt.setAttribute("style", "width:calc(" + sISbottomWidth + "% - 30px)");
+            newElt.appendChild(child);
+            sISbottom.appendChild(newElt);
+        }
         /*组建*/
         sISmainBox.appendChild(pre_button);
         sISmainBox.appendChild(next_button);
+        sISmainBox.appendChild(sISbottom);
+        /*创建图片*/
+        for (var i = 0; i < pnum; i++) {
+            console.log();
+            var mimg = document.createElement("img");
+            mimg.setAttribute("id", "SISp" + (i + 1));
+            mimg.setAttribute("name", "SISphotos");
+            mimg.setAttribute("src", sISsource.item(i).getAttribute("psrc"));
+            if (i == 0)
+                mimg.setAttribute("style", "opacity:1;");
+            else
+                mimg.setAttribute("style", "opacity:0;");
+            sISmainBox.appendChild(mimg);
+        }
     }
-
+    /*删除废弃标签*/
+    for (i = 0; i < pnum; i++)
+        sISmainBox.removeChild(sISsource[0]);
+    /*开启轮播*/
+    changeDirect(1);	/*避免加载死条*/
 });
 
 
