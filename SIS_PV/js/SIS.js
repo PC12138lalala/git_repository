@@ -14,32 +14,33 @@ var SISinterval;	/*滚动计时器*/
 var SISintervalTime = 5000;	/*滚动计时器时间，不给定值则初始化为5000ms*/
 var imgRatio = 16 / 9;	/*分辨率,默认16:9*/
 var SISBoxWidth;	/*盒子宽度，默认为70%*/
-var SISType;	/*SIS滑动类型*/
+var SISType = "z";	/*SIS滑动类型,默认为z*/
 
 
 /*
 * 页面加载完成后执行，用于初始化某些参数、动态添加选择条并开启计时器
 */
 
-$(function () {
+$(window).on("load", function () {
     SISType = document.getElementById("SISMainBox").getAttribute("data-type").toLowerCase();
-    if (SISType == "z") {
-        imgRatio = eval(document.getElementById("SISMainBox").getAttribute("data-ratio").replace(":", "/"));
-        SISBoxWidth = document.getElementById("SISMainBox").getAttribute("data-box-width");
-        if (SISBoxWidth != "") {
-            if (/^[1,2,3,4,5,6,7,8,9](\d{0,1}||00)%$/.test(SISBoxWidth) || /^\d{1,5}px$/.test(SISBoxWidth)) {
-                $("#SISMainBox").css("width", SISBoxWidth);
-                if (/^[1,2,3,4,5,6,7,8,9](\d{0,1}||00)%$/.test(SISBoxWidth))
-                    $("#SISMainBox").css("padding-bottom", SISBoxWidth.replace("%", "") / 100 / imgRatio * 100 + "%");
-                else
-                    $("#SISMainBox").css("padding-bottom", $("#SISMainBox").css("width").replace("px", "") / imgRatio + "px");
-            }
-
+    imgRatio = eval(document.getElementById("SISMainBox").getAttribute("data-ratio").replace(":", "/"));
+    SISBoxWidth = document.getElementById("SISMainBox").getAttribute("data-box-width");
+    if (SISBoxWidth != "") {
+        if (/^[1,2,3,4,5,6,7,8,9](\d{0,1}||00)%$/.test(SISBoxWidth) || /^\d{1,5}px$/.test(SISBoxWidth)) {
+            $("#SISMainBox").css("width", SISBoxWidth);
+            if (/^[1,2,3,4,5,6,7,8,9](\d{0,1}||00)%$/.test(SISBoxWidth))
+                $("#SISMainBox").css("padding-bottom", SISBoxWidth.replace("%", "") / 100 / imgRatio * 100 + "%");
+            else
+                $("#SISMainBox").css("padding-bottom", $("#SISMainBox").css("width").replace("px", "") / imgRatio + "px");
         }
 
-        SISintervalTime = document.getElementById("SISMainBox").getAttribute("data-intervalTime");
-        var sISsource = document.getElementsByTagName("SISsource");
-        pnum = sISsource.length;
+    }
+
+    SISintervalTime = document.getElementById("SISMainBox").getAttribute("data-intervalTime");
+    var sISsource = document.getElementsByTagName("SISsource");
+    pnum = sISsource.length;
+    if (SISType == "z") {
+        $("#SISMainBox").addClass("z-slide-img-show");
         /*组建向前翻页按钮*/
         var img = document.createElement("img");
         img.setAttribute("id", "slide-img-show-pre-button");
@@ -72,6 +73,9 @@ $(function () {
         }
         /*组建*/
         sISmainBox.appendChild(pre_button);
+        sISmainBox.appendChild(next_button);
+        sISmainBox.appendChild(sISbottom);
+
         /*创建图片*/
         for (var i = 0; i < pnum; i++) {
             console.log();
@@ -85,17 +89,63 @@ $(function () {
                 mimg.setAttribute("style", "opacity:0;");
             sISmainBox.appendChild(mimg);
         }
-        /*清除内容*/
+
+
+    } else if (SISType == "x-left" || SISType == "x-right") {
+        $("#SISMainBox").addClass("x-slide-img-show");
+        /*组建向前翻页按钮*/
+        var img = document.createElement("img");
+        img.setAttribute("id", "slide-img-show-pre-button");
+        img.setAttribute("src", "img/1.svg");
+        img.setAttribute("onclick", "javascript:z_changeToPrePhoto()");
+        var pre_button = document.createElement("SISpre-button");
+        pre_button.appendChild(img);
+        /*组建向后翻页按钮*/
+        img = document.createElement("img");
+        img.setAttribute("id", "slide-img-show-next-button");
+        img.setAttribute("src", "img/3.svg");
+        img.setAttribute("onclick", "javascript:z_changeToNextPhoto()");
+        var next_button = document.createElement("SISnext-button");
+        next_button.appendChild(img);
+        var sISmainBox = document.getElementById("SISMainBox");
+        /*组建底部*/
+        var sISbottom = document.createElement("SISbottom");
+        sISbottom.setAttribute("id", "SISbottom");
+        var sISbottomWidth = 1 / pnum * 100;
+        for (i = 0; i < pnum; i++) {
+            var child = document.createElement("lcolor");
+            child.setAttribute("id", "SISlc" + (i + 1));
+            child.setAttribute("name", "SISlcolor");
+            var newElt = document.createElement("c-line");
+            newElt.setAttribute("id", "SISb" + (i + 1));
+            newElt.setAttribute("onclick", "changeDirect(" + (i + 1) + ")");
+            newElt.setAttribute("style", "width:calc(" + sISbottomWidth + "% - 30px)");
+            newElt.appendChild(child);
+            sISbottom.appendChild(newElt);
+        }
+        /*组建*/
+        sISmainBox.appendChild(pre_button);
         sISmainBox.appendChild(next_button);
         sISmainBox.appendChild(sISbottom);
-        /*删除废弃标签*/
-        for (i = 0; i < pnum; i++)
-            sISmainBox.removeChild(sISsource[0]);
-        /*开启轮播*/
-        changeDirect(1);	/*避免加载死条*/
+        /*创建图片*/
+        for (var i = 0; i < pnum; i++) {
+            console.log();
+            var mimg = document.createElement("img");
+            mimg.setAttribute("id", "SISp" + (i + 1));
+            mimg.setAttribute("name", "SISphotos");
+            mimg.setAttribute("src", sISsource.item(i).getAttribute("psrc"));
+            if (i == 0)
+                mimg.setAttribute("style", "opacity:1;");
+            else
+                mimg.setAttribute("style", "opacity:0;");
+            sISmainBox.appendChild(mimg);
+        }
     }
-
-
+    /*删除废弃标签*/
+    for (i = 0; i < pnum; i++)
+        sISmainBox.removeChild(sISsource[0]);
+    /*开启轮播*/
+    changeDirect(1);	/*避免加载死条*/
 });
 
 
