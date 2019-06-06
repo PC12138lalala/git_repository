@@ -14,7 +14,7 @@ var SISinterval;	/*滚动计时器*/
 var SISintervalTime = 5000;	/*滚动计时器时间，不给定值则初始化为5000ms*/
 var imgRatio = 16 / 9;	/*分辨率,默认16:9*/
 var SISBoxWidth;	/*盒子宽度，默认为70%*/
-var SISType;	/*SIS滑动类型*/
+var SISType="z";	/*SIS滑动类型,默认为z*/
 
 
 /*
@@ -23,23 +23,24 @@ var SISType;	/*SIS滑动类型*/
 
 $(function () {
     SISType = document.getElementById("SISMainBox").getAttribute("data-type").toLowerCase();
-    if (SISType == "z") {
-        imgRatio = eval(document.getElementById("SISMainBox").getAttribute("data-ratio").replace(":", "/"));
-        SISBoxWidth = document.getElementById("SISMainBox").getAttribute("data-box-width");
-        if (SISBoxWidth != "") {
-            if (/^[1,2,3,4,5,6,7,8,9](\d{0,1}||00)%$/.test(SISBoxWidth) || /^\d{1,5}px$/.test(SISBoxWidth)) {
-                $("#SISMainBox").css("width", SISBoxWidth);
-                if (/^[1,2,3,4,5,6,7,8,9](\d{0,1}||00)%$/.test(SISBoxWidth))
-                    $("#SISMainBox").css("padding-bottom", SISBoxWidth.replace("%", "") / 100 / imgRatio * 100 + "%");
-                else
-                    $("#SISMainBox").css("padding-bottom", $("#SISMainBox").css("width").replace("px", "") / imgRatio + "px");
-            }
-
+    imgRatio = eval(document.getElementById("SISMainBox").getAttribute("data-ratio").replace(":", "/"));
+    SISBoxWidth = document.getElementById("SISMainBox").getAttribute("data-box-width");
+    if (SISBoxWidth != "") {
+        if (/^[1,2,3,4,5,6,7,8,9](\d{0,1}||00)%$/.test(SISBoxWidth) || /^\d{1,5}px$/.test(SISBoxWidth)) {
+            $("#SISMainBox").css("width", SISBoxWidth);
+            if (/^[1,2,3,4,5,6,7,8,9](\d{0,1}||00)%$/.test(SISBoxWidth))
+                $("#SISMainBox").css("padding-bottom", SISBoxWidth.replace("%", "") / 100 / imgRatio * 100 + "%");
+            else
+                $("#SISMainBox").css("padding-bottom", $("#SISMainBox").css("width").replace("px", "") / imgRatio + "px");
         }
 
-        SISintervalTime = document.getElementById("SISMainBox").getAttribute("data-intervalTime");
-        var sISsource = document.getElementsByTagName("SISsource");
-        pnum = sISsource.length;
+    }
+
+    SISintervalTime = document.getElementById("SISMainBox").getAttribute("data-intervalTime");
+    var sISsource = document.getElementsByTagName("SISsource");
+    pnum = sISsource.length;
+    if (SISType == "z") {
+        $("#SISMainBox").addClass("z-slide-img-show");
         /*组建向前翻页按钮*/
         var img = document.createElement("img");
         img.setAttribute("id", "slide-img-show-pre-button");
@@ -72,6 +73,9 @@ $(function () {
         }
         /*组建*/
         sISmainBox.appendChild(pre_button);
+        sISmainBox.appendChild(next_button);
+        sISmainBox.appendChild(sISbottom);
+
         /*创建图片*/
         for (var i = 0; i < pnum; i++) {
             console.log();
@@ -86,15 +90,33 @@ $(function () {
             sISmainBox.appendChild(mimg);
         }
         /*清除内容*/
-        sISmainBox.appendChild(next_button);
-        sISmainBox.appendChild(sISbottom);
+
         /*删除废弃标签*/
         for (i = 0; i < pnum; i++)
             sISmainBox.removeChild(sISsource[0]);
         /*开启轮播*/
         changeDirect(1);	/*避免加载死条*/
+    }else if(SISType == "x-left" || SISType == "x-right"){
+        $("#SISMainBox").addClass("x-slide-img-show");
+        /*组建向前翻页按钮*/
+        var img = document.createElement("img");
+        img.setAttribute("id", "slide-img-show-pre-button");
+        img.setAttribute("src", "img/1.svg");
+        img.setAttribute("onclick", "javascript:z_changeToPrePhoto()");
+        var pre_button = document.createElement("SISpre-button");
+        pre_button.appendChild(img);
+        /*组建向后翻页按钮*/
+        img = document.createElement("img");
+        img.setAttribute("id", "slide-img-show-next-button");
+        img.setAttribute("src", "img/3.svg");
+        img.setAttribute("onclick", "javascript:z_changeToNextPhoto()");
+        var next_button = document.createElement("SISnext-button");
+        next_button.appendChild(img);
+        var sISmainBox = document.getElementById("SISMainBox");
+        /*组建*/
+        sISmainBox.appendChild(pre_button);
+        sISmainBox.appendChild(next_button);
     }
-
 
 });
 

@@ -8,19 +8,18 @@
 
  */
 .slide-img-show {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     position: relative;
+    height: 0;
+    width: 70%;
 }
 
 .z-slide-img-show {
-    margin: 0 auto;
-    height: 0;
-    width: 70%;
     background-color: white;
 }
 
-.z-slide-img-show img {
+.z-slide-img-show >img {
     position: absolute;
     top: 0;
     left: 0;
@@ -31,7 +30,7 @@
     transition: 0.5s;
 }
 
-.z-slide-img-show SISpre-button, SISnext-button {
+SISpre-button, SISnext-button {
     height: calc(100% - 50px);
     width: 55px;
     position: absolute;
@@ -40,20 +39,29 @@
     z-index: 10001;
 }
 
-.z-slide-img-show SISnext-button {
+SISnext-button {
     right: 40px;
 }
 
-.z-slide-img-show SISpre-button {
+SISpre-button {
     left: 40px;
 }
 
-.z-slide-img-show SISpre-button img, .z-slide-img-show SISnext-button img {
+SISpre-button>img, SISnext-button>img {
     height: 55px;
     width: 55px;
     position: relative;
-    opacity: 1;
+    opacity: 0;
     cursor: pointer;
+}
+
+.slide-img-show:hover SISpre-button>img{
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.slide-img-show:hover SISnext-button>img{
+    opacity: 1;
 }
 
 .z-slide-img-show SISbottom {
@@ -81,4 +89,8 @@
     background-color: white;
     width: 0;
     float: left;
+}
+
+.x-slide-img-show{
+    background-color: white;
 }
