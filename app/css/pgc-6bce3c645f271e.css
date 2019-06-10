@@ -1,0 +1,41 @@
+/* pgc.css */
+*{margin:0px;padding:0px;}
+body{background:#F6F5FA;position:relative;font-family:"微软雅黑";}
+img {width:100%;}
+a{text-decoration:none;}
+.wrap{max-width:720px;overflow:hidden;}
+
+.Top{height:40px;background:#fff;}
+.top{height:25px;line-height:25px;font-size:20px;margin-top:10px;margin-bottom:10px;padding-left:10px;padding-right:10px;background:#fff;}
+.nav{height:25px;}
+.nav img{width:auto;height:100%;}
+.search{height:25px;}
+.search img{width:auto;height:100%;}
+.logo{height:25px;text-align:center;color:#333;}
+
+
+.xian{height:1px;background:#D8D7DC;}
+
+
+.pgc{width:100%;padding: 40px 0;background:#fff;}
+.pgc-logo{width:40%;margin:0 auto;}
+.pgc-logo img{width:100%;height:100%;}
+
+
+.pgc-jianjie{width:100%;padding: 20px 15px;}
+.pgc-jianjie-title{width:100%;}
+.pgc-jianjie-title p{line-height:30px;text-indent:2em;font-size:16px;}
+
+
+.pgc-yingpian-con{position:relative;width:100%;margin-bottom:5px;}
+.pgc-yingpian-con img{width:100%;height:100%;}
+.pgc-yingpian-con-div{position:absolute;bottom:0px;left:0px;width:100%;padding-left:5px;}
+.pgc-yingpian-con-div h2{height:25px;line-height:25px;font-size:14px;color:#fff;}
+.pgc-yingpian-con-div h3{height:20px;line-height:20px;font-size:12px;color:#fff;}
+
+
+
+
+
+
+

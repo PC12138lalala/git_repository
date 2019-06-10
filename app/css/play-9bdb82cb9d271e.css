@@ -1,0 +1,7 @@
+
+.play-con{background:#fff;padding:15px 0;}
+.play-title{}
+.play-title h2{height:20px;line-height:20px;font-size:18px;color:#353535;padding-left:10px;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;}
+.play-title p{line-height:20px;font-size:14px;;padding-left:10px;margin-top:5px;color: #666;}
+.play-title p span{display: block;float: left;line-height:20px;font-size:14px;}
+.play-title p img{width:20px;display: block;float: left;}

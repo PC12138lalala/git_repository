@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-align: center;
+}
+
+body {
+    background: url("../img/full_bg.png") 100% no-repeat;
+    max-width: 1920px;
+    min-width: 1200px;
+    height: 2440px;
+    position: relative;
+    border-top: 1px solid red;
+}
+
+#head_title_L {
+    width: 1025px;
+    height: 261px;
+    margin: 57px auto 0 auto;
+    background: url("../img/head_title_L.png");
+}
+
+#head_title_S {
+    background: url("../img/head_title_S.png") 100% no-repeat;
+    width: 948px;
+    height: 163px;
+    margin: 25px auto 0 auto;
+}
+
+.exhibition_area {
+    margin: 30px auto 0 auto;
+    height: auto;
+    width: auto;
+    position: relative;
+}
+
+.exhibition_area .subtitle {
+    margin: 0 auto 20px auto;
+    width: 1118px;
+    height: 143px;
+    background: url("../img/ST_bg.png");
+}
+
+.exhibition_area .subtitle img {
+    margin: 65px auto 0 auto;
+}
+
+.exhibition_area .content {
+    height: 634px;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.exhibition_area .content ul {
+    width: 100%;
+    height: 42px;
+}
+
+.exhibition_area .content ul li {
+    height: 42px;
+    width: 137px;
+    display: inline-block;
+    float: left;
+    cursor: pointer;
+    font-size: 21pt;
+    text-align: left;
+    padding-left: 44px;
+}
+
+.exhibition_area .content .exhibitions {
+    background: white;
+    width: calc(100% - 40px);
+    height: 594px;
+    border: 1px solid white;
+    border-radius: 0 20px 20px 20px;
+    padding: 20px;
+}
+
+.exhibition_area .content .exhibitions .text_left {
+    float: left;
+    width: 70%;
+    text-align: left;
+    font-size: 20pt;
+}
+
+.exhibition_area .content .exhibitions .text_right {
+    float: right;
+    width: 30%;
+    text-align: right;
+    font-size: 16pt;
+}
+
+.exhibition_area .content .exhibitions .text_right a {
+    color: black;
+    text-decoration: none;
+}
+
+.exhibition_area .content .exhibitions .big_img{
+    float: left;
+    width: 70%;
+    height: 553px;
+    position: relative;
+}
+
+.exhibition_area .content .exhibitions .big_img img{
+    height: 100%;
+    width: 100%;
+}
+
+.exhibition_area .content .exhibitions .big_img span{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    height: 36px;
+    text-align: left;
+    background: rgba(128, 128, 128, 0.7);
+    font-size: 20pt;
+}
+
+.exhibition_area .content .exhibitions .small_img{
+    float: right;
+    width: 30%;
+    height: 164px;
+    margin: 10px auto;
+}
+
+.exhibition_area .content .exhibitions .small_img img{
+    width: 100%;
+    height: 100%;
+}
