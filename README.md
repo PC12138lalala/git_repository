@@ -1,3 +1,4 @@
 # git_repository
-hello !
-world !
+hello !world !
+
+This's a test repository!
