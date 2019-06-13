@@ -1,0 +1,95 @@
+<info_lib>
+    <year y="2018">
+        <community>
+            <entity>
+                <designation>1</designation>
+                <photo>1.jpg</photo>
+            </entity>
+            <entity>
+                <designation>2</designation>
+                <photo>2.jpg</photo>
+            </entity>
+            <entity>
+                <designation>3</designation>
+                <photo>3.jpg</photo>
+            </entity>
+            <entity>
+                <designation>4</designation>
+                <photo>4.jpg</photo>
+            </entity>
+        </community>
+        <individual>
+            <entity>
+                <name>1</name>
+                <photo>1.jpg</photo>
+            </entity>
+            <entity>
+                <name>2</name>
+                <photo>2.jpg</photo>
+            </entity>
+            <entity>
+                <name>3</name>
+                <photo>3.jpg</photo>
+            </entity>
+            <entity>
+                <name>4</name>
+                <photo>4.jpg</photo>
+            </entity>
+        </individual>
+    </year>
+
+    <year y="2017">
+        <community>
+            <entity>
+                <designation>2</designation>
+                <photo>2.jpg</photo>
+            </entity>
+            <entity>
+                <designation>3</designation>
+                <photo>3.jpg</photo>
+            </entity>
+            <entity>
+                <designation>4</designation>
+                <photo>4.jpg</photo>
+            </entity>
+        </community>
+        <individual>
+            <entity>
+                <name>2</name>
+                <photo>2.jpg</photo>
+            </entity>
+            <entity>
+                <name>3</name>
+                <photo>3.jpg</photo>
+            </entity>
+            <entity>
+                <name>4</name>
+                <photo>4.jpg</photo>
+            </entity>
+        </individual>
+    </year>
+
+    <year y="2016">
+        <community>
+            <entity>
+                <designation>3</designation>
+                <photo>3.jpg</photo>
+            </entity>
+            <entity>
+                <designation>4</designation>
+                <photo>4.jpg</photo>
+            </entity>
+        </community>
+        <individual>
+            <entity>
+                <name>3</name>
+                <photo>3.jpg</photo>
+            </entity>
+            <entity>
+                <name>4</name>
+                <photo>4.jpg</photo>
+            </entity>
+        </individual>
+    </year>
+
+</info_lib>
