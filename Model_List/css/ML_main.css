@@ -47,7 +47,7 @@ body {
 }
 
 .exhibition_area .content {
-    height: 634px;
+    height: auto;
     width: 1200px;
     margin: 0 auto;
 }
