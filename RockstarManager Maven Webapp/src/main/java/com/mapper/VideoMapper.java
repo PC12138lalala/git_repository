@@ -59,8 +59,8 @@ public interface VideoMapper {
 					))
 	})
 	public List<Video> queryAll();
-	@Insert("insert into video(name,id,video_name,view_time,update_date,userid) values(#{name},replace(lpad(VIDEO_SEQ.nextval,8,'0'),'','0'),#{video_name},0,sysdate,#{userid})")
-	public void addVideo(@Param("video_name")String video_name,@Param("userid") String userid,@Param("name") String name);
+	@Insert("insert into video(name,id,video_name,view_time,update_date,userid) values(#{name},#{id},#{video_name},0,sysdate,#{userid})")
+	public void addVideo(@Param("video_name")String video_name,@Param("id")String id,@Param("userid") String userid,@Param("name") String name);
 	@Delete("delete from video where id=#{id}")
 	public void delVideo(@Param("id") String id);
 	@Select("select count(*) from video")

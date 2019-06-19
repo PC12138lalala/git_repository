@@ -14,6 +14,7 @@ import com.model.Gameinfo;
 import com.model.Video;
 import com.service.VideoService;
 import com.util.Pageing;
+import com.util.SnowflakeIdWorker;
 @Service("videoService")
 public class VideoImplement implements VideoService {
 
@@ -48,7 +49,9 @@ public class VideoImplement implements VideoService {
 	@Override
 	public void addVideo(String video_name, String userid,String name) {
 		// TODO Auto-generated method stub
-		videoMapper.addVideo(video_name, userid, name);
+		SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
+		long id = idWorker.nextId();
+		videoMapper.addVideo(video_name,Long.toString(id), userid, name);
 	}
 	@Override
 	public void delVideo(String id) {

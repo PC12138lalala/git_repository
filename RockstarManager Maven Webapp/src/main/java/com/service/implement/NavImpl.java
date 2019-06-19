@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.mapper.NavMapper;
 import com.model.Nav;
 import com.service.NavService;
+import com.util.SnowflakeIdWorker;
 
 @Service("NavService")
 public class NavImpl implements NavService {
@@ -27,7 +28,9 @@ public class NavImpl implements NavService {
 	@Override
 	public void addNav(Nav nav) {
 		// TODO Auto-generated method stub
-		navMapper.addNav(nav);
+		SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
+		long id = idWorker.nextId();
+		navMapper.addNav(Long.toString(id),nav);
 	}
 	@Override
 	public void delnav(String navid) {

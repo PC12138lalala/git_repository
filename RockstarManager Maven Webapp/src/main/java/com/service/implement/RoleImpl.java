@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.mapper.RoleMapper;
 import com.model.Role;
 import com.service.RoleService;
+import com.util.SnowflakeIdWorker;
 @Service("RoleService")
 public class RoleImpl implements RoleService {
 
@@ -23,7 +24,9 @@ public class RoleImpl implements RoleService {
 	@Override
 	public void addRole(Role role) {
 		// TODO Auto-generated method stub
-		roleMapper.addRole(role);
+		SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
+		long id = idWorker.nextId();
+		roleMapper.addRole(role,Long.toString(id));
 	}
 
 	@Override

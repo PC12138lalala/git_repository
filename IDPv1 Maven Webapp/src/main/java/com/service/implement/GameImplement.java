@@ -13,14 +13,6 @@ public class GameImplement implements GameService {
 
 	@Autowired
 	private GameMapper gameMapper;
-	
-	@Override
-	public Gameinfo getGameInfoByName(String name) {
-		// TODO Auto-generated method stub
-		List<Gameinfo> list=(List<Gameinfo>) gameMapper.queryGameByName(name);
-		Gameinfo gameinfo=list.get(0);
-		return gameinfo;
-	}
 
 	@Override
 	public List<Gameinfo> getAllGames() {
