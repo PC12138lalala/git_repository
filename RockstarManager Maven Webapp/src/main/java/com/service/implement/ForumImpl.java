@@ -19,7 +19,7 @@ public class ForumImpl implements ForumService {
 	public void pageingBasic(Pageing p) {
 		// TODO Auto-generated method stub
 		p.setTotalNum(forumMapper.getTotal());
-		p.setEntity(forumMapper.pageingQuery(p.getStart(), p.getStop()));
+		p.setEntity(forumMapper.pageingQuery(p.getStart(), p.getPageSize()));
 	}
 	@Override
 	public void updateStatus(String id, String type, String status) {

@@ -29,7 +29,7 @@ $(document).ready(function (){
 	});
 	
 	$("#toSearch").click(function() {
-		window.location.href="forum/condition?condition="+$("#condition").attr("value")+"&current=1";
+		window.location.href="forum/condition?condition="+$("#condition").val()+"&current=1";
 	})
 	
 	if(document.getElementById("newdis").children[0].childElementCount==0){

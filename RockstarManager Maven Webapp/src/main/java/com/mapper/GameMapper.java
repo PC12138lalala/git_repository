@@ -21,6 +21,6 @@ public interface GameMapper {
 	public List<Gameinfo> queryGameByName(@Param("name") String name);
 	@Select("select count(*) from gameinfo")
 	public Integer getTotal();
-	@Select("select name,developer,platform,releasedate,info from (select rownum rn,name,developer,platform,releasedate,info from gameinfo where rownum <#{stop} order by name) t where t.rn>=#{start}")
-	public List<Gameinfo> pageingQuery(@Param("start") int start,@Param("stop") int stop);
+	@Select("select name,developer,platform,releasedate,info from gameinfo  order by name LIMIT ${start},${pageSize}")
+	public List<Gameinfo> pageingQuery(@Param("start") int start,@Param("pageSize") int pageSize);
 }

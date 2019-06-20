@@ -11,7 +11,7 @@ import com.model.Role;
 import com.service.RoleService;
 
 @Controller
-@RequestMapping("manager")
+@RequestMapping("manage")
 public class RoleInfo {
 
 	@Autowired

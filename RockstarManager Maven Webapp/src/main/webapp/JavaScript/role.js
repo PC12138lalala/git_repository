@@ -13,7 +13,7 @@ function check(){
 function del(role)
 {
 	$.ajax({
-		url:"manager/delRole?unique="+role,
+		url:"manage/delRole?unique="+role,
 		type : "POST",
 	    async:false,
 	    dataType : "JSON",

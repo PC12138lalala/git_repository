@@ -10,6 +10,7 @@ import com.mapper.ForumMapper;
 import com.model.Forum;
 import com.service.ForumService;
 import com.util.Pageing;
+import com.util.SnowflakeIdWorker;
 @Service("ForumService")
 public class ForumImpl implements ForumService {
 
@@ -19,7 +20,9 @@ public class ForumImpl implements ForumService {
 	@Override
 	public void addDisc(Map<String, Object> info) {
 		// TODO Auto-generated method stub
-		forumMapper.addDisc(info.get("userid").toString(), info.get("name").toString(), info.get("title").toString(), info.get("content").toString());
+		SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
+		long id = idWorker.nextId();
+		forumMapper.addDisc(info.get("userid").toString(), info.get("name").toString(), Long.toString(id),info.get("title").toString(), info.get("content").toString());
 	}
 
 	@Override
@@ -32,7 +35,7 @@ public class ForumImpl implements ForumService {
 	public void pageingQueryByCondition(String condition,Pageing p) {
 		// TODO Auto-generated method stub
 		p.setTotalNum(forumMapper.getTotalByCondition(condition));
-		p.setEntity(forumMapper.queryByCondition(condition, p.getStart(), p.getStop()));
+		p.setEntity(forumMapper.queryByCondition(condition, p.getStart(), p.getPageSize()));
 	}
 
 	@Override
@@ -52,7 +55,7 @@ public class ForumImpl implements ForumService {
 	public void pageingBasic(Pageing p) {
 		// TODO Auto-generated method stub
 		p.setTotalNum(forumMapper.getTotal());
-		p.setEntity(forumMapper.pageingQuery(p.getStart(), p.getStop()));
+		p.setEntity(forumMapper.pageingQuery(p.getStart(), p.getPageSize()));
 	}
 	
 	

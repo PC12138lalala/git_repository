@@ -37,7 +37,7 @@ public class NewsImpl implements NewsService {
 	public void pageingBasic(Pageing p) {
 		// TODO Auto-generated method stub
 		p.setTotalNum(newsMapper.getTotal());
-		List<News> l = newsMapper.pageingQuery(p.getStart(), p.getStop());
+		List<News> l = newsMapper.pageingQuery(p.getStart(), p.getPageSize());
 		p.setEntity(l);
 	}
 

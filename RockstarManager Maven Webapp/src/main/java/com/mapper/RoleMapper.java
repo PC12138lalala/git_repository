@@ -15,8 +15,8 @@ public interface RoleMapper {
 	public List<Role> queryAll();
 	@Select("select * from role where roleid=#{roleid}")
 	public List<Role> queryOneByRoleId(@Param("roleid") String roleid);
-	@Insert("insert into role (roleid,rolename,info) values(#{r_id},#{rolename},#{info})")
-	public void addRole(Role role,@Param("r_id") String r_id);
+	@Insert("insert into role (roleid,rolename,info) values(#{roleid},#{rolename},#{info})")
+	public void addRole(Role role);
 	@Delete("delete from role where roleid=#{roleid}")
 	public void delRole(@Param("roleid") String roleid);
 }

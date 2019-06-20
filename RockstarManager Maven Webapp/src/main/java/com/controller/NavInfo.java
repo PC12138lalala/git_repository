@@ -11,7 +11,7 @@ import com.model.Nav;
 import com.service.NavService;
 
 @Controller
-@RequestMapping("manager")
+@RequestMapping("manage")
 public class NavInfo {
 	
 	@Autowired

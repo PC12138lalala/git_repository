@@ -19,11 +19,11 @@ public interface UsersetMapper {
 	public List<Userset> findUserByPhoneOrEmail(@Param(value = "account") String account,@Param(value = "pwd") String pwd);
 	@Select("select * from userset where userid=#{userid}")
 	public List<Userset> findUserByUserID(@Param(value="userid") String userid);
-	@Update("update userset set LastSign=sysdate where userid=#{userid}")
+	@Update("update userset set LastSign=now() where userid=#{userid}")
 	public void updateLastSign(@Param(value="userid") String userid);
 	@UpdateProvider(type=UsersetDynamicSQL.class,method="updateUserset")
 	public void updateUserInfo(Userset userset);
-	@Insert("insert into userset(userid,password,email,phone,username,SIGNDATE,LASTSIGN) values(replace(lpad(idplus.nextval,4,'0'),'','0'),#{password},#{email},#{phone},#{username},sysdate,sysdate)")
+	@Insert("insert into userset(userid,password,email,phone,username,SIGNDATE,LASTSIGN) values(#{userid},#{password},#{email},#{phone},#{username},now(),now())")
 	public void insertUser(Userset userset);
 	@Select("select userid from userset where username=#{username} or email=#{email} or phone=#{phone}")
 	public List<Userset> checkUser(Userset userset);

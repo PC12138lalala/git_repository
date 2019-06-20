@@ -46,13 +46,9 @@ public class ViewLikeUpdate {
 	public HashMap<String, Object> update1(@RequestParam(value="seq") String seq)
 	{
 		int length=seq.length();
-		String newseq="";
-		for(int i=0;i<8-length;i++)
-			newseq+="0";
-		newseq+=seq;
-		videoCommentService.updateLikes(newseq);
+		videoCommentService.updateLikes(seq);
 		HashMap<String, Object> map=new HashMap<String, Object>();
-		map.put("likes",videoCommentService.queryOneBySeq(newseq).getLikes());
+		map.put("likes",videoCommentService.queryOneBySeq(seq).getLikes());
 		return map;
 	}
 	
@@ -61,13 +57,9 @@ public class ViewLikeUpdate {
 	public HashMap<String, Object> update2(@RequestParam(value="seq") String seq)
 	{
 		int length=seq.length();
-		String newseq="";
-		for(int i=0;i<8-length;i++)
-			newseq+="0";
-		newseq+=seq;
-		forumCommentService.updateLikes(newseq);
+		forumCommentService.updateLikes(seq);
 		HashMap<String, Object> map=new HashMap<String, Object>();
-		map.put("likes",forumCommentService.queryOneBySeq(newseq).getLikes());
+		map.put("likes",forumCommentService.queryOneBySeq(seq).getLikes());
 		return map;
 	}
 	

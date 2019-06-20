@@ -15,8 +15,8 @@ import com.model.Forum_comment;
 
 public interface ForumCommentMapper {
 
-	@Insert("insert into FORUM_COMMENT(id,userid,content,cdate,likes,seq) values(#{id},#{userid},#{content},sysdate,0,replace(lpad(FORUMCOMMSEQ.nextval,8,'0'),'','0'))")
-	public void insert(@Param("content")String content,@Param("userid")String userid,@Param("id")String id);
+	@Insert("insert into FORUM_COMMENT(id,userid,content,cdate,likes,seq) values(#{id},#{userid},#{content},now(),0,#{seq})")
+	public void insert(@Param("content")String content,@Param("userid")String userid,@Param("id")String id,@Param("seq")String seq);
 	@Update("update FORUM_COMMENT set likes=likes+1 where seq=#{seq}")
 	public void updateLikes(@Param("seq")String seq);
 	@Select("select * from FORUM_COMMENT where id=#{id} order by Cdate desc")
@@ -35,7 +35,7 @@ public interface ForumCommentMapper {
 	public Forum_comment getInfoBySeq(@Param("seq")String seq);
 	@Select("select count(*) from FORUM_COMMENT where id = #{id}")
 	public Integer getTotal(@Param("id") String id);
-	@Select("select id,userid,content,cdate,likes,seq from (select rownum rn,id,userid,content,cdate,likes,seq from FORUM_COMMENT where id = #{id} order by likes desc) t where t.rn>=#{start} and t.rn <#{stop}")
+	@Select("select id,userid,content,cdate,likes,seq from FORUM_COMMENT where id = #{id} order by likes desc limit ${start},${pageSize}")
 	@Results({
 		@Result(column="content",property="content"),
 		@Result(column="cdate",property="cdate"),
@@ -46,5 +46,5 @@ public interface ForumCommentMapper {
 					select="com.mapper.UsersetMapper.findUserByUserID",fetchType=FetchType.LAZY
 				))
 	})
-	public List<Forum_comment> pageingQuery(@Param("start") int start,@Param("stop") int stop,@Param("id") String id);
+	public List<Forum_comment> pageingQuery(@Param("start") int start,@Param("pageSize") int pageSize,@Param("id") String id);
 }

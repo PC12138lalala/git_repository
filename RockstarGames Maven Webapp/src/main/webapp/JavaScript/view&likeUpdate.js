@@ -21,16 +21,17 @@ function UpdateVideoViewTime(str)
 
 function UpdateCommentLike(str)
 {
+	str=str.toString();
 	$.ajax({
 		url:"UpdateCommentLike?seq="+str,
 		type : "POST",
 	    async:false,
 	    dataType : "JSON",
 	    success : function(data) {
-	    	var data1=eval(data);
-	    	str=('0000000'+str).slice(-8);
-	    	document.getElementById(str).innerHTML=data1.likes+" likes";
 	    	document.getElementById(str).attributes.removeNamedItem("onclick");
+	    	var data1=eval(data);
+	    	document.getElementById(str).innerHTML=data1.likes+" likes";
+	    	
 	    },
 	    error :function(data){
 	    	sAlert("ajax do not work","alert","");
@@ -41,16 +42,18 @@ function UpdateCommentLike(str)
 
 function UpdateForumCommentLike(str)
 {
+	str=str.toString();
 	$.ajax({
 		url:"UpdateForumCommentLike?seq="+str,
 		type : "POST",
 	    async:false,
 	    dataType : "JSON",
 	    success : function(data) {
-	    	var data1=eval('('+data+')');
-	    	str=('0000000'+str).slice(-8);
-	    	document.getElementById(str).innerHTML=data1.likes+" likes";
 	    	document.getElementById(str).attributes.removeNamedItem("onclick");
+	    	console.log(data)
+	    	var data1=eval(data);
+	    	document.getElementById(str).innerHTML=data1.likes+" likes";
+	    	
 	    },
 	    error :function(data){
 	    	sAlert("ajax do not work","alert","");

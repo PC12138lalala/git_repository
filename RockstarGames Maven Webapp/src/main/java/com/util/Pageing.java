@@ -54,7 +54,7 @@ public class Pageing {
 		super();
 		this.current = current;
 		this.pageSize = pageSize;
-		start = (current-1)*pageSize+1;
+		start = (current-1)*pageSize;
 		stop = start+pageSize;
 	}
 	@Override

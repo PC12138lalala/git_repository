@@ -16,7 +16,7 @@ function check(){
 function del(game)
 {
 	$.ajax({
-		url:"manager/delGame?unique="+game,
+		url:"manage/delGame?unique="+game,
 		type : "POST",
 	    async:false,
 	    dataType : "JSON",

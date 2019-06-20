@@ -12,7 +12,7 @@ public interface UsersetMapper {
 
 	@Select("select * from Userset where (phone=#{account} or email=#{account}) and password=#{pwd}")
 	public List<Userset> findUserByPhoneOrEmail(@Param(value = "account") String account,@Param(value = "pwd") String pwd);
-	@Update("update userset set LastSign=sysdate where userid=#{userid}")
+	@Update("update userset set LastSign=now() where userid=#{userid}")
 	public void updateLastSign(@Param(value="userid") String userid);
 	
 }

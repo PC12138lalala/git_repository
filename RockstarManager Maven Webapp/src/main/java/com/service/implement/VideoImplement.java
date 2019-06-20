@@ -63,7 +63,7 @@ public class VideoImplement implements VideoService {
 		// TODO Auto-generated method stub
 		p.setTotalNum(videoMapper.getTotal());
 		List<Gameinfo> game = gameMapper.queryAllGameInfo();
-		List<Video> video = videoMapper.pageingQuery(p.getStart(), p.getStop());
+		List<Video> video = videoMapper.pageingQuery(p.getStart(), p.getPageSize());
 		List l = new ArrayList();
 		l.add(game);
 		l.add(video);

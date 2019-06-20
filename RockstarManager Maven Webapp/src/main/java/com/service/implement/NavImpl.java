@@ -30,7 +30,8 @@ public class NavImpl implements NavService {
 		// TODO Auto-generated method stub
 		SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
 		long id = idWorker.nextId();
-		navMapper.addNav(Long.toString(id),nav);
+		nav.setNavid(Long.toString(id));
+		navMapper.addNav(nav);
 	}
 	@Override
 	public void delnav(String navid) {

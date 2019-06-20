@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.model.Userset;
 import com.service.UsersetService;
 import com.util.MD5;
+import com.util.SnowflakeIdWorker;
 
 @Controller
 public class UserSignIn {
@@ -28,6 +29,9 @@ public class UserSignIn {
 		userset.setEmail(email);
 		userset.setPassword(MD5.getInstance().getMD5(password1));
 		userset.setPhone(phone);
+		SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
+		long id = idWorker.nextId();
+		userset.setUserid(Long.toString(id));
 		model.addAttribute("userset", userset);
 	}
 	@RequestMapping(value="UserSignIn",method=RequestMethod.POST)

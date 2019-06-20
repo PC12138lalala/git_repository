@@ -26,7 +26,7 @@ public interface VideoCommentMapper {
 				))
 	})
 	public List<Video_comment> loadVideoCommentById(@Param("id" )String id);
-	@Insert("insert into video_comment(id,userid,content,cdate,likes,seq) values(#{id},#{userid},#{content},sysdate,0,#{seq}")
+	@Insert("insert into video_comment(id,userid,content,cdate,likes,seq) values(#{id},#{userid},#{content},now(),0,#{seq}")
 	public void insert(@Param("content")String content,@Param("userid")String userid,@Param("id")String id,@Param("seq")String seq);
 	@Update("update VIDEO_COMMENT set likes=likes+1 where seq=#{seq}")
 	public void updateLikes(@Param("seq")String seq);

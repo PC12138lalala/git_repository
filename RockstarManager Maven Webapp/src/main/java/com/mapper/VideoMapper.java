@@ -59,13 +59,13 @@ public interface VideoMapper {
 					))
 	})
 	public List<Video> queryAll();
-	@Insert("insert into video(name,id,video_name,view_time,update_date,userid) values(#{name},#{id},#{video_name},0,sysdate,#{userid})")
+	@Insert("insert into video(name,id,video_name,view_time,update_date,userid) values(#{name},#{id},#{video_name},0,now(),#{userid})")
 	public void addVideo(@Param("video_name")String video_name,@Param("id")String id,@Param("userid") String userid,@Param("name") String name);
 	@Delete("delete from video where id=#{id}")
 	public void delVideo(@Param("id") String id);
 	@Select("select count(*) from video")
 	public Integer getTotal();
-	@Select("select name,id,video_name,view_time,update_date,userid from (select rownum rn,name,id,video_name,view_time,update_date,userid from video where rownum <#{stop} order by update_date) t where t.rn>=#{start}")
+	@Select("select name,id,video_name,view_time,update_date,userid from video  order by update_date LIMIT ${start},${pageSize}")
 	@Results({
 		@Result(id=true,column="id",property="id"),
 		@Result(column="video_name",property="video_name"),
@@ -80,5 +80,5 @@ public interface VideoMapper {
 				select="com.mapper.UsersetMapper.findUserByUserID",fetchType=FetchType.LAZY
 					))
 	})
-	public List<Video> pageingQuery(@Param("start") int start,@Param("stop") int stop);
+	public List<Video> pageingQuery(@Param("start") int start,@Param("pageSize") int pageSize);
 }

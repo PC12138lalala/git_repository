@@ -25,7 +25,7 @@ function check(){
 function del(id)
 {
 	$.ajax({
-		url:"manager/delNews?unique="+id,
+		url:"manage/delNews?unique="+id,
 		type : "POST",
 	    async:false,
 	    dataType : "JSON",

@@ -16,7 +16,7 @@ import com.model.Forum;
 
 public interface ForumMapper {
 
-	@Select("select userid,name,id,title,content,mdate,islocked,isdelete,istop from (select rownum rn,userid,name,id,title,content,mdate,islocked,isdelete,istop from (select userid,name,id,title,content,mdate,islocked,isdelete,istop from forum where isdelete='N' order by istop desc,mdate desc ) t) t where t.rn>=#{start} and t.rn<#{stop}")
+	@Select("select userid,name,id,title,content,mdate,islocked,isdelete,istop from forum where isdelete='N' order by istop desc,mdate desc limit ${start},${pageSize}")
 	@Results({
 		@Result(id=true,column="id",property="id"),
 		@Result(column="title",property="title"),
@@ -34,7 +34,7 @@ public interface ForumMapper {
 				select="com.mapper.UsersetMapper.findUserByUserID",fetchType=FetchType.LAZY
 					))
 	})
-	public List<Forum> pageingQuery(@Param("start") int start,@Param("stop") int stop);
+	public List<Forum> pageingQuery(@Param("start") int start,@Param("pageSize") int pageSize);
 	@Select("Select count(*) from forum where isdelete='N'")
 	public Integer getTotal();
 	@UpdateProvider(type=ForumDynamicSQL.class,method="updateStatus")

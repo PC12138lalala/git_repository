@@ -37,7 +37,7 @@ public class GameImplement implements GameService {
 	public void pageingBasic(Pageing p) {
 		// TODO Auto-generated method stub
 		p.setTotalNum(gameMapper.getTotal());
-		List<Gameinfo> l = gameMapper.pageingQuery(p.getStart(), p.getStop());
+		List<Gameinfo> l = gameMapper.pageingQuery(p.getStart(), p.getPageSize());
 		p.setEntity(l);
 	}
 	

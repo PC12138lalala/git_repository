@@ -31,7 +31,7 @@ import com.util.Pageing;
 
  */
 @Controller
-@RequestMapping("manager")
+@RequestMapping("manage")
 public class NewsInfo {
 	
 	@Autowired

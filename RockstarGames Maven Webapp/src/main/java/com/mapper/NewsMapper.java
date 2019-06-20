@@ -25,9 +25,9 @@ import com.model.News;
  */
 public interface NewsMapper {
 
-	@Insert("insert into news(userid,id,create_date,upload_date,likes) values(#{userid},#{id},#{create_date},sysdate,0)")
+	@Insert("insert into news(userid,id,create_date,upload_date,likes) values(#{userid},#{id},#{create_date},now(),0)")
 	public void addNews(@Param("userid") String userid,@Param("id") String id,@Param("create_date") Timestamp create_date);
-	@Select("select userid,id,create_date,upload_date,likes from (select rownum rn,userid,id,create_date,upload_date,likes from news where rownum <#{stop} order by upload_date) t where t.rn>=#{start}")
+	@Select("select userid,id,create_date,upload_date,likes from news order by upload_date limit ${start},${pageSize}")
 	@Results({
 		@Result(id=true,column="ID",property="ID"),
 		@Result(column="CREATE_DATE",property="CREATE_DATE"),
@@ -38,7 +38,7 @@ public interface NewsMapper {
 				select="com.mapper.UsersetMapper.findUserByUserID",fetchType=FetchType.LAZY
 					))
 	})
-	public List<News> pageingQuery(@Param("start") int start,@Param("stop") int stop);
+	public List<News> pageingQuery(@Param("start") int start,@Param("pageSize") int pageSize);
 	@Select("select count(*) from news")
 	public Integer getTotal();
 	@Delete("delete from news where id=#{id}")

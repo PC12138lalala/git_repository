@@ -80,7 +80,7 @@ public class UsersetImplement implements UsersetService{
 	public void pageingBasic(Pageing page) {
 		// TODO Auto-generated method stub
 		page.setTotalNum(usersetMapper.getTotal());
-		page.setEntity(usersetMapper.pageingQuery(page.getStart(), page.getStop()));
+		page.setEntity(usersetMapper.pageingQuery(page.getStart(), page.getPageSize()));
 	}
 	
 }

@@ -11,7 +11,7 @@ function check(){
 function del(video)
 {
 	$.ajax({
-		url:"manager/delVideo?unique="+video,
+		url:"manage/delVideo?unique="+video,
 		type : "POST",
 	    async:false,
 	    dataType : "JSON",

@@ -15,8 +15,8 @@ import com.model.Forum;
 
 public interface ForumMapper {
 
-	@Insert("insert into forum(userid,name,id,title,content,mdate,islocked,isdelete,istop) values(#{userid},#{name},replace(lpad(MSEQ.nextval,8,'0'),'','0'),#{title},#{content},SYSDATE,'N','N','N')")
-	public void addDisc(@Param("userid") String userid,@Param("name") String name,@Param("title") String title,@Param("content") String content);
+	@Insert("insert into forum(userid,name,id,title,content,mdate,islocked,isdelete,istop) values(#{userid},#{name},#{id},#{title},#{content},now(),'N','N','N')")
+	public void addDisc(@Param("userid") String userid,@Param("name") String name,@Param("id") String id,@Param("title") String title,@Param("content") String content);
 	@Select("select * from forum order by istop desc,mdate desc ")
 	@Results({
 		@Result(column="userid",property="userset",
@@ -29,7 +29,7 @@ public interface ForumMapper {
 				))
 	})
 	public List<Forum> queryAll();
-	@Select("select userid,name,id,title,content,mdate,islocked,isdelete,istop from (select rownum rn,userid,name,id,title,content,mdate,islocked,isdelete,istop from (select userid,name,id,title,content,mdate,islocked,isdelete,istop from forum where isdelete='N' and title like '%${condition}%' order by istop desc,mdate desc ) t) t where t.rn>=#{start} and t.rn<#{stop}")
+	@Select("select userid,name,id,title,content,mdate,islocked,isdelete,istop from forum where isdelete='N' and title like '%${condition}%' order by istop desc,mdate desc limit ${start},${pageSize} ")
 	@Results({
 		@Result(column="userid",property="userset",
 				one=@One(
@@ -44,7 +44,7 @@ public interface ForumMapper {
 						select="com.mapper.ForumCommentMapper.loadForumCommentById",fetchType=FetchType.LAZY
 				))
 	})
-	public List<Forum> queryByCondition(@Param("condition") String condition,@Param("start") int start,@Param("stop") int stop);
+	public List<Forum> queryByCondition(@Param("condition") String condition,@Param("start") int start,@Param("pageSize") int pageSize);
 	@Select("select count(*) from FORUM where isdelete='N' and title like '%${condition}%'" )
 	public Integer getTotalByCondition(@Param("condition") String condition);
 	@Select("select * from forum where id=#{id}")
@@ -63,7 +63,7 @@ public interface ForumMapper {
 	public List<Forum> queryInfoByUserid(@Param("userid") String userid);
 	@Select("select count(*) from FORUM where isdelete='N'")
 	public Integer getTotal();
-	@Select("select userid,name,id,title,content,mdate,islocked,isdelete,istop from (select rownum rn,userid,name,id,title,content,mdate,islocked,isdelete,istop from (select userid,name,id,title,content,mdate,islocked,isdelete,istop from forum where isdelete='N' order by istop desc,mdate desc ) t) t where t.rn>=#{start} and t.rn<#{stop}")
+	@Select("select userid,name,id,title,content,mdate,islocked,isdelete,istop from forum where isdelete='N' order by istop desc,mdate desc  limit ${start},${pageSize}")
 	@Results({
 		@Result(id=true,column="id",property="id"),
 		@Result(column="title",property="title"),
@@ -85,5 +85,5 @@ public interface ForumMapper {
 					select="com.mapper.ForumCommentMapper.loadForumCommentById",fetchType=FetchType.LAZY
 					))
 	})
-	public List<Forum> pageingQuery(@Param("start") int start,@Param("stop") int stop);
+	public List<Forum> pageingQuery(@Param("start") int start,@Param("pageSize") int pageSize);
 }

@@ -26,7 +26,8 @@ public class RoleImpl implements RoleService {
 		// TODO Auto-generated method stub
 		SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
 		long id = idWorker.nextId();
-		roleMapper.addRole(role,Long.toString(id));
+		role.setRoleid(Long.toString(id));
+		roleMapper.addRole(role);
 	}
 
 	@Override

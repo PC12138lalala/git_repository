@@ -15,8 +15,8 @@ public interface NavMapper {
 	public Nav getNavInfoByIds(@Param("ids")String ids );
 	@Select("Select * from nav order by navid")
 	public List<Nav> getAllNavInfo();
-	@Insert("insert into nav(navid,navname,info) values(#{n_id},#{navname},#{info})")
-	public void addNav(@Param("n_id") String n_id,Nav nav);
+	@Insert("insert into nav(navid,navname,info) values(#{navid},#{navname},#{info})")
+	public void addNav(Nav nav);
 	@Delete("delete from nav where navid=#{navid}")
 	public void delNav(@Param("navid") String navid);
 }

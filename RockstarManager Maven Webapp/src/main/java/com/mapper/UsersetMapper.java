@@ -32,11 +32,11 @@ public interface UsersetMapper {
 				one=@One(select="com.mapper.RoleMapper.queryOneByRoleId",fetchType=FetchType.LAZY))
 	})
 	public List<Userset> findUserByUserID(@Param(value="userid") String userid);
-	@Update("update userset set LastSign=sysdate where userid=#{userid}")
+	@Update("update userset set LastSign=now() where userid=#{userid}")
 	public void updateLastSign(@Param(value="userid") String userid);
 	@UpdateProvider(type=UsersetDynamicSQL.class,method="updateUserset")
 	public void updateUserInfo(Userset userset);
-	@Insert("insert into userset(userid,password,email,phone,username,SIGNDATE,LASTSIGN) values(replace(lpad(idplus.nextval,4,'0'),'','0'),#{password},#{email},#{phone},#{username},sysdate,sysdate)")
+	@Insert("insert into userset(userid,password,email,phone,username,SIGNDATE,LASTSIGN) values(replace(lpad(idplus.nextval,4,'0'),'','0'),#{password},#{email},#{phone},#{username},now(),now())")
 	public void insertUser(Userset userset);
 	@Select("select userid from userset where username=#{username} or email=#{email} or phone=#{phone}")
 	public List<Userset> checkUser(Userset userset);
@@ -44,10 +44,10 @@ public interface UsersetMapper {
 	public void updateStatus(Map<String, Object> map);
 	@Select("select count(*) from userset")
 	public Integer getTotal();
-	@Select("select userid,password,email,phone,username,signdate,lastsign,islocked,isdelete,roleid from (select rownum rn,userid,password,email,phone,username,signdate,lastsign,islocked,isdelete,roleid from userset where rownum<#{stop} order by userid) t where t.rn>=#{start}")
+	@Select("select userid,password,email,phone,username,signdate,lastsign,islocked,isdelete,roleid from userset  order by userid limit ${start},${pageSize}")
 	@Results({
 		@Result(column="roleid",property="role",
 				one=@One(select="com.mapper.RoleMapper.queryOneByRoleId",fetchType=FetchType.LAZY))
 	})
-	public List<Userset> pageingQuery(@Param("start") int start,@Param("stop") int stop);
+	public List<Userset> pageingQuery(@Param("start") int start,@Param("pageSize") int pageSize);
 }

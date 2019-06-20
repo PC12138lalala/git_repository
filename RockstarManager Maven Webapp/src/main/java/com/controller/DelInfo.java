@@ -18,7 +18,7 @@ import com.service.RoleService;
 import com.service.VideoService;
 
 @Controller
-@RequestMapping("manager")
+@RequestMapping("manage")
 public class DelInfo {
 
 	@Autowired

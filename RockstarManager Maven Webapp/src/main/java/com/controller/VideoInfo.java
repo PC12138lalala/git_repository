@@ -21,7 +21,7 @@ import com.service.VideoService;
 import com.util.Pageing;
 
 @Controller
-@RequestMapping("manager")
+@RequestMapping("manage")
 public class VideoInfo {
 
 	@Autowired

@@ -20,7 +20,7 @@ import com.util.Pageing;
 import com.util.PhotoResize;
 
 @Controller
-@RequestMapping("manager")
+@RequestMapping("manage")
 public class GameInfo {
 
 	@Autowired
@@ -49,6 +49,7 @@ public class GameInfo {
 		gameService.pageingBasic(page);
 		model.addAttribute("pageing",page);
 		model.addAttribute("game", page.getEntity());
+		System.out.println(photo.isEmpty());
 		if(!photo.isEmpty())
 		{
 			ResourceBundle res = ResourceBundle.getBundle("webapp");

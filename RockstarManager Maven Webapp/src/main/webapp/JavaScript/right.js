@@ -13,7 +13,7 @@ function check(){
 function del(nav)
 {
 	$.ajax({
-		url:"manager/delNav?unique="+nav,
+		url:"manage/delNav?unique="+nav,
 		type : "POST",
 	    async:false,
 	    dataType : "JSON",

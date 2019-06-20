@@ -43,7 +43,7 @@ $(document).ready(function() {
 		$("#span").before(elem);
 	}
 	for(;index<=maxpage;index++){
-		var elem=$("<button id=\"p"+index+"\" onclick=\"window.location.href='manager/"+$("#target").attr("value")+"?target="+$("#target").attr("value")+"&current="+index+"'\"></button>").text(index);
+		var elem=$("<button id=\"p"+index+"\" onclick=\"window.location.href='manage/"+$("#target").attr("value")+"?target="+$("#target").attr("value")+"&current="+index+"'\"></button>").text(index);
 		$("#span").before(elem);
 	}
 	if(index-1 <parseInt($("#totalPage").attr("value"))){
@@ -58,7 +58,7 @@ function TO(){
 	var reg=/^[0-9]+$/;
 	if(reg.test($("#jumpTo").attr("value"))){
 		if(parseInt($("#jumpTo").attr("value")) >0 && parseInt($("#jumpTo").attr("value"))<= parseInt($("#totalPage").attr("value")))
-			window.location.href="manager/"+$("#target").attr("value")+"?target="+$("#target").attr("value")+"&current="+parseInt($("#jumpTo").attr("value"));
+			window.location.href="manage/"+$("#target").attr("value")+"?target="+$("#target").attr("value")+"&current="+parseInt($("#jumpTo").attr("value"));
 		else
 			alert("out of range")
 	}

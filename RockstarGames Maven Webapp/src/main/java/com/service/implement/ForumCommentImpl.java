@@ -4,6 +4,7 @@ import java.util.List;
 
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import com.mapper.ForumCommentMapper;
 import com.model.Forum_comment;
 import com.service.ForumCommentService;
 import com.util.Pageing;
+import com.util.SnowflakeIdWorker;
 @Service("ForumCommentService")
 public class ForumCommentImpl implements ForumCommentService {
 
@@ -20,7 +22,9 @@ public class ForumCommentImpl implements ForumCommentService {
 	@Override
 	public void insertComment(String content, String userid, String id) {
 		// TODO Auto-generated method stub
-		forumCommentMapper.insert(content, userid, id);
+		SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
+		long seq = idWorker.nextId();
+		forumCommentMapper.insert(content, userid, id,Long.toString(seq));
 	}
 
 	@Override
@@ -45,7 +49,7 @@ public class ForumCommentImpl implements ForumCommentService {
 	public void pageingBasic(Pageing p,String id) {
 		// TODO Auto-generated method stub
 		p.setTotalNum(forumCommentMapper.getTotal(id));
-		p.setEntity(forumCommentMapper.pageingQuery(p.getStart(), p.getStop(), id));
+		p.setEntity(forumCommentMapper.pageingQuery(p.getStart(), p.getPageSize(), id));
 	}
 
 	
