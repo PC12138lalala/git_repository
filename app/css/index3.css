@@ -1,0 +1,76 @@
+@-ms-viewport { width:device-width; }
+@media only screen and (min-device-width:800px) { html { overflow:hidden; } }
+html { height:100%; }
+body { height:100%; overflow:hidden; margin:0; padding:0; font-family:黑体, sans-serif; font-size:16px; color:#FFFFFF; background-color:#000000; }
+#pano {
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    background: url(images/logo2-3-12.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 200px 200px;
+}
+.div-uc {
+    background-color: #000;
+    color: #FFFFFF;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+.download{
+    background:  #222222;
+    height: 74px;
+    width: 100%;
+    color: white;
+    bottom: 0;
+    position: fixed;
+    vertical-align: middle;
+    visibility: hidden;
+}
+
+.download a i{
+    width: 20px;
+    height: 20px;
+    display: inline;
+    margin: 25px 0 0 22px;
+    float: left;
+    background: url("images/close.png") no-repeat left center;
+    background-size: contain;
+}
+
+.download > dl{
+    padding: 0 0 0 15px;
+    float: left;
+}
+
+.download > dl > dd{
+    margin-left: 3.5rem;
+}
+
+.download > dl > dd p{
+    line-height: 22px;
+}
+.dowN{
+    float: left;
+    width: 44px;
+    height: 44px;
+}
+
+.biger{
+    font-size: 16px;
+    margin: 0;
+}
+
+.downer{
+    font-size: 1.125rem;
+    border: solid 1px white;
+    text-align: center;
+    line-height: 2.625rem;
+    border-radius: 12px;
+    width: 20%;
+    color: white;
+    float: right;
+    margin-right: 5px;
+    margin-top: 15px;
+}

@@ -1,0 +1,102 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 浮动 */
+.clear{zoom:1;clear:both;}
+.clear:after{content:""; clear:both; height:0; line-height:0; display:block; visibility:hidden;}
+.fl{float:left;display:inline;}
+.fr{float:right;display:inline;}
+
+/* 常用间距值 */
+.mt10{margin-top:10px;}
+.mt15{margin-top:15px;}
+.mt20{margin-top:20px;}
+.mt30{margin-top:30px;}
+.mt60{margin-top:60px;}
+
+.ml10{margin-left:10px;}
+.ml15{margin-left:15px;}
+.ml20{margin-left:20px;}
+.ml30{margin-left:30px;}
+
+.mr10{margin-right:10px;}
+.mr15{margin-right:15px;}
+.mr20{margin-right:20px;}
+.mr30{margin-right:30px;}
+
+.mb10{margin-bottom:10px;}
+.mb15{margin-bottom:15px;}
+.mb20{margin-bottom:20px;}
+.mb30{margin-bottom:30px;}
+
+/* 字的大小 */
+.f10{font-size:10px;}
+.f12{font-size:12px;}
+.f14{font-size:14px;}
+.f16{font-size:16px;}
+.f20{font-size:20px;}
+.f24{font-size:24px;}
+/* 粗体 */ 
+.fwb{font-weight:bold;}
+/* 斜体 */
+.fsi{font-style:italic;}
+/* 贯穿线 */
+.gcx{text-decoration:underline;}
+
+a:hover{text-decoration: none;}
+/* 底部 */
+.download{max-width:720px;background:rgba(0,0,0,0.8);height:70px;width:100%;color:white;bottom: 0;position: fixed;vertical-align: middle;}
+.download a i{width:20px;height:20px;display:inline;margin:25px 0 0 20px;float:left;background:url("http://m.hotcast.cn/build/style/images/close.png") no-repeat left center;background-size:contain;}
+.download > dl{float: left;width:60%;margin-top:10px;margin-left:20px;}
+.download > dl > dt{width:20%;float:left;}
+.download > dl > dd{float:left;margin-left:1em;}
+.download > dl > dd p{line-height: 22px;}
+.downer{width:20%;font-size: 1.125em;border: solid 1px white;text-align: center;line-height: 2.625em;border-radius: 12px;color: white;float: left;margin-top:10px;}
+
+.webVR{display:block;max-width:720px;height:80px;width:100%;color:white;bottom: 80px;position: fixed;vertical-align: middle;background:url("http://m.hotcast.cn/build/style/images/webVr.png") no-repeat center;background-size:15% auto;}

@@ -1,0 +1,111 @@
+/**
+
+ * @author 作者 Your-Name: 郭鹏程
+
+ * @version 创建时间：2019年2月19日 下午3:03:43
+
+ * 轮播视频图样式表
+
+ */
+.slide-img-show {
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    height: 0;
+    width: 70%;
+}
+
+.z-slide-img-show {
+    background-color: white;
+}
+
+.z-slide-img-show > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+SISpre-button, SISnext-button {
+    height: calc(100% - 50px);
+    width: 55px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    z-index: 10001;
+}
+
+SISnext-button {
+    right: 40px;
+}
+
+SISpre-button {
+    left: 40px;
+}
+
+SISpre-button > img, SISnext-button > img {
+    height: 55px;
+    width: 55px;
+    position: relative;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.slide-img-show:hover SISpre-button > img {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.slide-img-show:hover SISnext-button > img {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+SISbottom {
+    margin: 34px 10% 10px 10%;
+    height: 6px;
+    width: 80%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10001;
+}
+
+SISbottom c-line {
+    height: 100%;
+    background-color: #484848;
+    margin: 0 15px;
+    float: left;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.slide-img-show:hover c-line {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+SISbottom c-line lcolor {
+    height: 100%;
+    background-color: white;
+    width: 0;
+    float: left;
+}
+
+.x-slide-img-show {
+    background-color: white;
+    /*overflow: hidden;*/
+}
+
+.x-slide-img-show > img {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: 0.5s;
+    position: absolute;
+    z-index: 10000;
+}

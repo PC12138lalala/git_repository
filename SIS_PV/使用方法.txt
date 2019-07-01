@@ -1,0 +1,11 @@
+﻿使用方法：
+    1.属性都有默认值，并非都需要初始化；
+    2.参照实例页面代码使用；
+    3.img中的.svg文件勿动，js和css文件夹中自带的.js和.css文件勿动。
+
+组件属性：
+    属性			作用				例子		单位		默认值			取值范围
+    data-ratio			设置分辨率			16：9				16：9			
+    data-intervalTime 		设置图片滚动时间		5000		ms		5000			
+    data-box-width		设置盒子宽度建议百分比		80%		70%		
+    SISType			设置滚动样式			z				z			z、x-left、x-right
