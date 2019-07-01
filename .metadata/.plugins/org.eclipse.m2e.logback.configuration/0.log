@@ -1,2 +1,0 @@
-2019-06-19 20:35:18,645 [Worker-6] INFO  c.g.e.m.h.c.ui.Html5AppCoreUIPlugin - Pluging started
-2019-06-19 20:35:26,098 [Worker-14] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updating index for repository: central|http://repo.maven.apache.org/maven2
