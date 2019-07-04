@@ -1,0 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    position: relative;
+    min-width: 1200px;
+}

@@ -1,0 +1,136 @@
+#services {
+    height: 5760px;
+    background: url("../img/services_bgp.png") 100% no-repeat;
+    border-top: 1px solid white;
+}
+
+.partition_line {
+    width: 60%;
+    height: 30px;
+    text-align: center;
+    margin: 156px 20% 0 20%;
+    background: url("../img/partition_line.png") center no-repeat;
+}
+
+.partition_line .title {
+    height: 30px;
+    width: 250px;
+    background-color: #fcfcfc;
+    font: 26px SourceHanSansCN-Regular bold;
+    display: inline-block;
+}
+
+#service_container {
+    width: 80%;
+    height: 430px;
+    position: relative;
+    padding: 0 10%;
+}
+
+#trunk {
+    width: 80%;
+    height: 20px;
+    background: url("../img/service/trunk.png") 100% no-repeat;
+    position: absolute;
+    top: 50%;
+}
+
+.branch_container_up {
+    width: 10%;
+    height: 185px;
+    position: absolute;
+    top: 30px;
+}
+
+.branch_container_up .S_title {
+    width: 100%;
+    height: 30px;
+    font: 30px SourceHanSansCN-Light bold;
+    text-align: center;
+    transition: 2000ms;
+}
+
+.branch_container_up .S_title_small {
+    height: 20px;
+    font: 20px SourceHanSansCN-Light bold;
+}
+
+.branch_container_up .icon {
+    position: absolute;
+    left: calc(50% - 60px);
+    bottom: 30px;
+    height: 120px;
+    width: 120px;
+    z-index: 2;
+    transition: 2000ms;
+}
+
+.branch_container_up .icon_small {
+    left: calc(50% - 50px);
+    height: 100px;
+    width: 100px;
+}
+
+.branch_container_up .icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.branch_container_up img[class="branch"] {
+    width: 10px;
+    height: 92px;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 5px);
+}
+
+.branch_container_down {
+    width: 10%;
+    height: 185px;
+    position: absolute;
+    top: 235px;
+}
+
+.branch_container_down .S_title {
+    width: 100%;
+    height: 30px;
+    font: 30px SourceHanSansCN-Light bold;
+    text-align: center;
+    position: absolute;
+    top: 150px;
+    transition: 2000ms;
+}
+
+.branch_container_down .S_title_small {
+    height: 20px;
+    font: 20px SourceHanSansCN-Light bold;
+}
+
+.branch_container_down .icon {
+    position: absolute;
+    left: calc(50% - 60px);
+    top: 30px;
+    height: 120px;
+    width: 120px;
+    z-index: 2;
+    transition: 2000ms;
+}
+
+.branch_container_down .icon_small {
+    left: calc(50% - 50px);
+    height: 100px;
+    width: 100px;
+}
+
+.branch_container_down .icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.branch_container_down img[class="branch"] {
+    width: 10px;
+    height: 92px;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 5px);
+}

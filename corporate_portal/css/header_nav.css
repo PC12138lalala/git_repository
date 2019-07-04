@@ -1,0 +1,50 @@
+#header_nav {
+    width: auto;
+    height: 91px;
+    border-top: 1px solid rgb(13, 13, 13);
+    background-color: rgb(13, 13, 13);
+    text-align: center;
+}
+
+#nav_content {
+    margin: 27px auto auto auto;
+    padding-left: 257px;
+    height: 46px;
+    width: auto;
+    position: relative;
+    display: inline-block;
+}
+
+img {
+    height: 46px;
+    width: 128px;
+    position: absolute;
+    left: 0;
+}
+
+#title_span {
+    height: 14px;
+    margin-top: 11px;
+    width: 109px;
+    font: 16px SourceHanSansCN-ExtraLight bold;
+    color: white;
+    position: absolute;
+    left: 130px;
+}
+
+ul {
+    width: auto;
+    margin-left: 20px;
+}
+
+li {
+    display: inline-block;
+    height: 18px;
+    padding-right: 37px;
+    margin-top: 11px;
+}
+
+li > a {
+    color: white;
+    text-decoration: none;
+}
