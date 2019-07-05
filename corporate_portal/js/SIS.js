@@ -140,6 +140,26 @@ $(window).on("load", function () {
             mimg.setAttribute("name", "SISphotos");
             mimg.setAttribute("src", sISsource.item(i).getAttribute("psrc"));
             x_img_content.appendChild(mimg);
+            var content_box = document.createElement("content_box");
+            var content_box_title = document.createElement("title");
+            content_box_title.innerText = sISsource.item(i).getAttribute("ptitle");
+            var content_box_sub_title = document.createElement("sub_title");
+            content_box_sub_title.innerText = sISsource.item(i).getAttribute("pstitle");
+            var content_box_eng = document.createElement("eng");
+            content_box_eng.innerHTML = sISsource.item(i).getAttribute("peng");
+            var content_box_b_area = document.createElement("b_area");
+            var button = document.createElement("button");
+            button.innerHTML = "了解更多";
+            button.setAttribute("onclick", "window.location.href='" + sISsource.item(i).getAttribute("phref") + "'")
+            content_box_b_area.appendChild(button);
+
+            content_box.appendChild(content_box_title);
+            content_box.appendChild(content_box_sub_title);
+            content_box.appendChild(content_box_eng);
+            content_box.appendChild(content_box_b_area);
+            content_box.setAttribute("style", "left:calc(17% + " + i * $("#x-img-content").width() + "px);");
+            x_img_content.appendChild(content_box);
+
         }
         /*开启轮播*/
         x_changeDirect(1);

@@ -113,3 +113,60 @@ SISbottom c-line lcolor {
     flex-shrink: 0;
     height: 100%;
 }
+
+#x-img-content > content_box {
+    position: absolute;
+    top: calc(50% - 207px);
+    width: 480px;
+    height: 290px;
+    text-align: left;
+    color: white;
+    font-size: 34px;
+}
+
+#x-img-content > content_box title {
+    height: 20%;
+    width: 100%;
+    display: block;
+}
+
+#x-img-content > content_box sub_title {
+    height: 20%;
+    width: 100%;
+    display: block;
+}
+
+#x-img-content > content_box eng {
+    height: 20%;
+    width: 100%;
+    display: block;
+    font-size: 18px;
+    padding-top: 5%;
+    border-bottom: 3px solid white;
+}
+
+#x-img-content > content_box b_area {
+    height: 20%;
+    width: 100%;
+    display: block;
+    margin-top: 5%;
+}
+
+#x-img-content > content_box b_area button {
+    height: 46px;
+    width: 220px;
+    background-color: #3a66bf;
+    display: block;
+    color: white;
+    border: 5px solid #3a66bf;
+    border-radius: 15px;
+    font-size: 21px;
+    outline: none;
+    transition: 1s;
+}
+
+#x-img-content > content_box b_area button:hover {
+    background-color: white;
+    color: blue;
+    cursor: pointer;
+}
