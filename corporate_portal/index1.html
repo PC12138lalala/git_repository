@@ -1,0 +1,29 @@
+<html>
+<body>
+
+<canvas id="myCanvas" width="800" height="600" style="border:1px solid #d3d3d3; transform: rotateY(180deg);">
+    您的浏览器不支持 HTML5 canvas 标签。
+</canvas>
+
+<script>
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var partition = 0.025, start = 0, end = 1;
+    var interval = window.setInterval(function () {
+        if (start == end) {
+            window.clearInterval(interval);
+        }
+        ctx.beginPath();
+        ctx.lineWidth=3;
+        ctx.strokeStyle='#050528',
+        ctx.arc(500, 300, 200, 0, start * Math.PI);
+        start = (start * 10 + partition * 10) / 10;
+        console.log(start);
+        ctx.stroke();
+    }, 12.5);
+
+</script>
+
+</body>
+</html>

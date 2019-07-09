@@ -1,5 +1,5 @@
 #services {
-    height: 5760px;
+    height: auto;
     background: url("../img/services_bgp.png") 100% no-repeat;
     border-top: 1px solid white;
     padding: 0 10%;
@@ -309,5 +309,101 @@
 }
 
 .partner .icon:hover {
-    box-shadow: 0px 14px 17px 0px grey;
+    box-shadow: 0px 14px 17px 0px rgba(0, 0, 17, 0.61);
+}
+
+.history_band {
+    background: url("../img/service/partner/history_bg.png") 100% no-repeat;
+    width: 98%;
+    height: auto;
+    margin: 20px 1%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.history_band .block {
+    width: 23%;
+    margin: 30px 1% 10px 1%;
+    height: auto;
+    background: url("../img/service/partner/band.png") 100% no-repeat;
+    display: inline-block;
+    border-radius: 10px;
+    position: relative;
+}
+
+.history_band .block .num {
+    font: 100px bolder;
+    text-align: center;
+    color: #3a66bf;
+}
+
+.history_band .block .white_line {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: calc(50% - 2.5px);
+    height: 5px;
+    background: url("../img/service/partner/white_line.png") 100% no-repeat;
+    z-index: 2;
+}
+
+.history_band .text_title {
+    width: 23%;
+    margin: 15px 1%;
+    height: auto;
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+}
+
+.history_band .block .add_icon {
+    background: url("../img/service/partner/add_icon.png") 100% no-repeat;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.propaganda_board {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.propaganda_board .board {
+    width: 32%;
+    margin: 40px 0.5%;
+    height: auto;
+}
+
+.propaganda_board .board img {
+    width: 100%;
+    height: auto;
+    position: relative;
+
+}
+
+.propaganda_board .mapper {
+    width: 99%;
+    height: auto;
+    margin: 0 0.5% 40px 0.5%;
+}
+
+.propaganda_board .mapper img {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.propaganda_board .textarea {
+    width: 99%;
+    margin: 20px 0.5% 40px 0.5%;
+    color: black;
+    text-align: center;
 }
