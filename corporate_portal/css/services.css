@@ -368,6 +368,35 @@
     right: 5px;
 }
 
+.work_process{
+    width: 98%;
+    height: auto;
+    margin: 40px 1% 0 1%;
+    display: block;
+    position: relative;
+}
+
+.work_process img{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.work_process .top{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    background: url("../img/service/partner/work_process_top.png") no-repeat;
+    background-size: cover;
+}
+
+.work_process .top img{
+    width: 100%;
+    height: auto;
+    opacity: 0;
+}
+
 .propaganda_board {
     width: 100%;
     height: auto;

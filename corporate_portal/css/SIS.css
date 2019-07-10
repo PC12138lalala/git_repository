@@ -111,7 +111,7 @@ SISbottom c-line lcolor {
     width: 100%;
     position: relative;
     flex-shrink: 0;
-    height: 100%;
+    height: auto;
 }
 
 #x-img-content > content_box {

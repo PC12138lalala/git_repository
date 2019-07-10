@@ -22,4 +22,23 @@ $(document).ready(function () {
             add_num(200, 17, $("#num4"));
         }
     }, 1);
+
+    var pos_interval_1 = window.setInterval(function () {
+        $(".work_process .top").height($(".work_process").height());
+        var width = 0;
+        if ($(document).scrollTop() + window.innerHeight - 550 > $(".work_process").offset().top) {
+            window.clearInterval(pos_interval_1);
+            var pos_interval_2 = window.setInterval(function () {
+                if (width < 58.5)
+                    width += 0.1;
+                else
+                    width += 0.07;
+                $(".work_process .top").width(width + "%");
+                if (width >= 100) {
+                    window.clearInterval(pos_interval_2);
+                }
+            }, 1);
+        }
+    }, 1);
+
 });

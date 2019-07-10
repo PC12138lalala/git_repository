@@ -98,14 +98,18 @@ SISbottom c-line lcolor {
 
 .x-slide-img-show {
     background-color: white;
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 
-.x-slide-img-show > img {
+#x-img-content {
+    position: relative;
+    display: flex;
+    box-sizing: content-box;
+}
+
+#x-img-content > img {
     width: 100%;
+    position: relative;
+    flex-shrink: 0;
     height: 100%;
-    opacity: 1;
-    transition: 0.5s;
-    position: absolute;
-    z-index: 10000;
 }
