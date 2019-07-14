@@ -2,6 +2,6 @@ spring:
   cloud:
     config:
       uri: http://192.168.1.63:8888
-      name: service-admin
+      name: web-admin
       label: master
       profile: dev
