@@ -1,0 +1,20 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:tx="http://www.w3.org/1999/html">
+<head>
+    <title>fuck u!</title>
+</head>
+<body>
+<th:block th:if="${tbSysUser == null}">
+    <form action="login" method="post">
+        <input type="hidden" name="url" th:value="${url}">
+        用户名：<input type="text" name="loginCode">
+        密 码：<input type="password" name="password">
+        <input type="submit">
+        <tx:input type="text" th:text="${message}">a</tx:input>
+    </form>
+</th:block>
+4564564564564564
+<span th:text="${tbSysUser}">xv xcvvsdvdvd</span>
+<span th:href="@{{adminlte}/(adminlte=${adminlte})}"></span>
+</body>
+</html>

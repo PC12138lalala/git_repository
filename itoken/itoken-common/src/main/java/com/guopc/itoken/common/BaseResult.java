@@ -16,16 +16,24 @@ public class BaseResult implements Serializable {
     private Cursor cursor;
     private List<Error> errors;
 
-    public static BaseResult ok(){
-        return createResult(RESULT_OK,null,"success",null,null);
+    public static BaseResult ok() {
+        return createResult(RESULT_OK, null, "success", null, null);
     }
 
-    public static BaseResult ok(Object data){
-        return createResult(RESULT_OK,data,"success",null,null);
+    public static BaseResult ok(Object data) {
+        return createResult(RESULT_OK, data, "success", null, null);
     }
 
-    public static BaseResult not_ok(List<Error> errors){
-        return createResult(RESULT_NOT_OK,null,"",null,errors);
+    public static BaseResult ok(Object data, Cursor cursor) {
+        return createResult(RESULT_OK, data, "SUCCESS", cursor, null);
+    }
+
+    public static BaseResult not_ok(List<Error> errors) {
+        return createResult(RESULT_NOT_OK, null, "", null, errors);
+    }
+
+    public static BaseResult not_ok() {
+        return createResult(RESULT_NOT_OK, null, "", null, null);
     }
 
     private static BaseResult createResult(String result, Object data, String success, Cursor cursor, List<Error> errors) {
